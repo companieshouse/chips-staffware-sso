@@ -1,6 +1,8 @@
 FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/ch-serverjre:1.2.0
 
-RUN yum -y install gettext
+RUN yum -y install gettext && \
+    yum clean all && \
+    rm -rf /var/cache/yum
 
 ENV SSO_HOME=/sso \
     ARTIFACTORY_BASE_URL=http://repository.aws.chdev.org:8081/artifactory
