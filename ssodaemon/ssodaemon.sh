@@ -7,7 +7,7 @@ timestamp() {
   done
 }
 
-export CLASSPATH=/sso:/sso/libs/ssoRMI.jar:/sso/libs/wlfullclient.jar
+export CLASSPATH=/sso:/sso/libs/ssoRMI.jar:/sso/libs/wlthint3client.jar
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/sso/libs
 
 VMARGS="-Dname=SSOServerFactory -Djava.security.policy=/sso/ssodaemon.policy -Xms128m -Xmx256m -classpath $CLASSPATH"
@@ -23,8 +23,6 @@ LOG_FILE="${LOGS_DIR}/${HOSTNAME}-ssodaemon-$(date +'%Y-%m-%d_%H-%M-%S').log"
 
 while :
 do
-  echo ${ADMIN_PASSWORD} 
-  echo ${HOST_SERVER} 
   /usr/java/jdk-8/bin/java -d64 $VMARGS $CLASS $ARGS  
 
   echo "========================="
