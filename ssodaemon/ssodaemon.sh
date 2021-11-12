@@ -17,18 +17,25 @@ CLASS=com.staffware.sso.rmi.rsServerFactoryImpl
 # Set the vars in the jndi.properties file
 envsubst < jndi.properties.template > jndi.properties
 
+# Compile the Watcher class
+/usr/java/jdk-8/bin/javac Watcher.java 
+
 LOGS_DIR=/sso/logs/ssodaemon
 mkdir -p ${LOGS_DIR}
 LOG_FILE="${LOGS_DIR}/${HOSTNAME}-ssodaemon-$(date +'%Y-%m-%d_%H-%M-%S').log"
 
 while :
 do
+  # Launch watcher process
+  /sso/watcher.sh &
+
+  # Attempt to bind the SSOServerFactory
   /usr/java/jdk-8/bin/java -d64 $VMARGS $CLASS $ARGS  
 
   echo "========================="
   echo "SSO Server Factory Exited >>>  on ${HOST_SERVER} "
   echo "========================="
 
-  sleep 10
+  sleep 30
 done 2>&1 | timestamp >> ${LOG_FILE}
 
