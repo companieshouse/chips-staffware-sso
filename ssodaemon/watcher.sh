@@ -5,8 +5,8 @@
 # 
 # If there is no SSOServerFactory process, the script exits
 # If there is a process, the script tries to connect to WebLogic using the Watcher java class
-## If the reference to the ssoServerFactory can be obtained, the script waits and then repeats the check for the process etc
-## If the reference to the ssoServerFactory can't be obtained, the script kills the SSOServerFactory process and exits
+# If the reference to the ssoServerFactory can be obtained, the script waits and then repeats the check for the process etc
+# If the reference to the ssoServerFactory can't be obtained, the script kills the SSOServerFactory process and exits
 #
 # Killing of the SSOServerFactory process will cause a new watcher instance to be created in the parent ssodaemon.sh script,
 # and another attempt will be made to bind the ssoServerFactory to WebLogic
