@@ -19,7 +19,7 @@ do
   # Check for java SSOServerFactory process
   SSO_PID=$(ps -ef | grep SSOServerFactory | grep -v grep | awk '{print $2}')
 
-  if [ ${SSO_PID}x == "x" ]; then
+  if [ -z "${SSO_PID}" ]; then
     echo "Watcher: no SSOServerFactory process found, so exiting.."
     exit 0
   fi

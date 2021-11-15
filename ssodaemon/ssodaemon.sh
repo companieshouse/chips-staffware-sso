@@ -17,9 +17,6 @@ CLASS=com.staffware.sso.rmi.rsServerFactoryImpl
 # Set the vars in the jndi.properties file
 envsubst < jndi.properties.template > jndi.properties
 
-# Compile the Watcher class
-/usr/java/jdk-8/bin/javac Watcher.java 
-
 LOGS_DIR=/sso/logs/ssodaemon
 mkdir -p ${LOGS_DIR}
 LOG_FILE="${LOGS_DIR}/${HOSTNAME}-ssodaemon-$(date +'%Y-%m-%d_%H-%M-%S').log"
