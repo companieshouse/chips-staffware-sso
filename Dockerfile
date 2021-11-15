@@ -24,6 +24,7 @@ RUN mkdir -p ${SSO_HOME}/libs && \
     curl ${ARTIFACTORY_BASE_URL}/libs-release/com/staffware/libssoJNI/11.4.1/libssoJNI-11.4.1.so -o libssoJNI.so && \
     curl ${ARTIFACTORY_BASE_URL}/libs-release/com/staffware/ssoRMI/11.4.1/ssoRMI-11.4.1.jar -o ssoRMI.jar && \
     curl ${ARTIFACTORY_BASE_URL}/local-ch-release/com/oracle/weblogic/wlthint3client/12.2.1.4/wlthint3client-12.2.1.4.jar -o wlthint3client.jar && \
-    chmod 750 ${SSO_HOME}/*.sh
+    cd && /usr/java/jdk-8/bin/javac Watcher.java && \
+    chmod 750 *.sh
 
 CMD ["bash"]
