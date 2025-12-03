@@ -24,7 +24,7 @@ do
     exit 0
   fi
 
-  /usr/java/jdk-8/bin/java -cp /sso:/sso/libs/wlthint3client.jar Watcher ssoServerFactory
+  /usr/java/jdk/bin/java -cp /sso:/sso/libs/wlthint3client.jar Watcher ssoServerFactory
   WATCHER_EXIT_CODE=$?
 
   if [ ${WATCHER_EXIT_CODE} -ne 0 ]; then

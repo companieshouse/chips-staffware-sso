@@ -10,7 +10,7 @@ timestamp() {
 export CLASSPATH=/sso:/sso/libs/ssoRMI.jar:/sso/libs/wlthint3client.jar
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/sso/libs
 
-VMARGS="-Dname=SSOServerFactory -Djava.security.policy=/sso/ssodaemon.policy -Xms128m -Xmx256m -classpath $CLASSPATH"
+VMARGS="-Djava.security.manager=allow -Dname=SSOServerFactory -Djava.security.policy=/sso/ssodaemon.policy -Xms128m -Xmx256m -classpath $CLASSPATH"
 ARGS="-name=ssoServerFactory -protocol=JRMP -verbose"
 CLASS=com.staffware.sso.rmi.rsServerFactoryImpl
 
@@ -27,7 +27,7 @@ do
   /sso/watcher.sh &
 
   # Attempt to bind the SSOServerFactory
-  /usr/java/jdk-8/bin/java -d64 $VMARGS $CLASS $ARGS  
+  /usr/java/jdk/bin/java $VMARGS $CLASS $ARGS  
 
   echo "========================="
   echo "SSO Server Factory Exited >>>  on ${HOST_SERVER} "
