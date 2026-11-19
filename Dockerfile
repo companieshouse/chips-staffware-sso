@@ -1,5 +1,5 @@
 # Pipeline validation change
-FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/ch-serverjre:2.0.0 AS builder
+FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/ch-serverjre:2.0.9 AS builder
 
 ARG ARTIFACTORY_URL
 ARG ARTIFACTORY_USERNAME
@@ -25,7 +25,7 @@ RUN mkdir -p ${SSO_HOME}/libs && \
     cd && /usr/java/jdk/bin/javac Watcher.java && \
     chmod 500 *.sh
 
-FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/ch-serverjre:2.0.0
+FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/ch-serverjre:2.0.9
 
 ENV SSO_HOME=/sso
 
